@@ -1,43 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surfshark Experimentation Hub</title>
+    <title>Surfshark iOS & Android App Experimentation Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f7f6;
+            font-family: 'Inter', sans-serif; /* Using Inter for a modern, clean look */
+            background-color: #f4f7f6; /* Light background for the overall page */
             margin: 0;
             padding: 20px;
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            /* Align to top to prevent vertical centering taking up too much space */
             min-height: 100vh;
             box-sizing: border-box;
         }
 
         .container {
-            background-color: #ffffff;
+            background-color: #16191c; /* Dark background, similar to Surfshark's darker UI elements */
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
             text-align: center;
-            max-width: 500px;
+            max-width: 600px; /* Slightly wider for better layout with categories */
             width: 100%;
             margin-top: 50px;
-            /* Add some space from the top */
+            color: #f9f9f9; /* Light text for contrast */
         }
 
         h1 {
-            color: #1a2b4b;
-            /* Dark blue, common for corporate branding */
-            font-size: 2.2em;
-            margin-bottom: 25px;
+            color: #f9f9f9; /* White for the main headline */
+            font-size: 2.5em; /* Larger headline */
+            margin-bottom: 20px;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
+            font-weight: 700; /* Bold font for headline */
         }
 
         h1::after {
@@ -46,40 +45,57 @@
             left: 50%;
             transform: translateX(-50%);
             bottom: 0;
-            height: 3px;
-            width: 60px;
-            background-color: #00b0ff;
-            /* Bright blue, reminiscent of Surfshark */
+            height: 4px; /* Slightly thicker line */
+            width: 80px; /* Wider line */
+            background-color: #1EBFBF; /* Surfshark turquoise */
             border-radius: 2px;
+        }
+
+        .intro-text {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            line-height: 1.5;
+            color: #cccccc; /* Slightly lighter grey for descriptive text */
+        }
+
+        .category-section {
+            margin-bottom: 30px;
+            text-align: left; /* Align category titles to the left */
+        }
+
+        .category-title {
+            color: #1EBFBF; /* Turquoise for category titles */
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            border-bottom: 2px solid rgba(30, 191, 191, 0.3); /* Subtle underline */
+            padding-bottom: 5px;
         }
 
         .button-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            /* Single column for simplicity */
-            gap: 15px;
-            margin-top: 30px;
+            grid-template-columns: 1fr; /* Single column by default */
+            gap: 12px; /* Slightly smaller gap */
+            margin-top: 15px; /* Adjust margin after category title */
         }
 
         .button-grid a {
             display: block;
-            background-color: #00b0ff;
-            /* Surfshark primary blue */
-            color: white;
+            background-color: #1EBFBF; /* Surfshark primary turquoise */
+            color: #16191c; /* Dark text on buttons for contrast */
             padding: 15px 25px;
             border-radius: 8px;
             text-decoration: none;
             font-size: 1.1em;
             font-weight: bold;
             transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0, 176, 255, 0.2);
+            box-shadow: 0 4px 10px rgba(30, 191, 191, 0.3); /* Shadow matching button color */
         }
 
         .button-grid a:hover {
-            background-color: #0088cc;
-            /* Darker blue on hover */
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0, 176, 255, 0.3);
+            background-color: #18A0A0; /* Darker turquoise on hover */
+            transform: translateY(-3px); /* More pronounced lift effect */
+            box-shadow: 0 8px 20px rgba(30, 191, 191, 0.4); /* Stronger shadow on hover */
         }
 
         .button-grid a:active {
@@ -89,41 +105,61 @@
 
         .footer {
             margin-top: 40px;
-            font-size: 0.9em;
+            font-size: 0.85em; /* Slightly smaller footer text */
             color: #777;
         }
 
-        .footer a {
-            color: #00b0ff;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
+        .footer p {
+            margin: 0;
         }
 
         /* Responsive adjustments */
         @media (min-width: 600px) {
             .button-grid {
-                grid-template-columns: 1fr 1fr;
-                /* Two columns on larger screens */
+                grid-template-columns: 1fr 1fr; /* Two columns on larger screens */
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 40px;
+            }
+            h1 {
+                font-size: 3em;
+            }
+            .category-title {
+                font-size: 1.6em;
             }
         }
     </style>
 </head>
-
 <body>
     <div class="container">
-        <h1>Experimentation Hub</h1>
-        <p>Quick links to all your essential A/B testing resources and documentation:</p>
+        <h1>Surfshark iOS & Android App Experimentation Hub</h1>
+        <p class="intro-text">Your central access point for all essential A/B testing resources and documentation, categorized for easy navigation:</p>
 
-        <div class="button-grid">
-            <a href="[LINK_TO_POST_TESTS]" target="_blank">Post-Test Analysis</a>
-            <a href="[LINK_TO_EXPERIMENTATION_TEMPLATE]" target="_blank">Experiment Design Template</a>
-            <a href="[LINK_TO_RICE_BACKLOG]" target="_blank">RICE Prioritized Backlog</a>
-            <a href="[LINK_TO_MEETING_NOTES]" target="_blank">Meeting Notes Archive</a>
-            <a href="[LINK_TO_BEST_PRACTICES]" target="_blank">Best Practices & Insights</a>
-            <a href="[LINK_TO_RICE_GUIDELINES]" target="_blank">RICE Scoring Guidelines</a>
+        <div class="category-section">
+            <h2 class="category-title">Acquisition Experiments</h2>
+            <div class="button-grid">
+                <a href="[LINK_TO_RICE_BACKLOG]" target="_blank">Prioritized Backlog</a>
+                <a href="[LINK_TO_POST_TESTS]" target="_blank">Post-Test Analysis</a>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title">Operational Framework</h2>
+            <div class="button-grid">
+                <a href="[LINK_TO_RICE_GUIDELINES]" target="_blank">RICE Scoring Guidelines</a>
+                <a href="[LINK_TO_EXPERIMENTATION_TEMPLATE]" target="_blank">Experiment Design Template</a>
+            </div>
+        </div>
+
+        <div class="category-section">
+            <h2 class="category-title">Knowledge Base</h2>
+            <div class="button-grid">
+                <a href="[LINK_TO_MEETING_NOTES]" target="_blank">Meeting Notes Archive</a>
+                <a href="[LINK_TO_BEST_PRACTICES]" target="_blank">Best Practices & Insights</a>
+            </div>
         </div>
 
         <div class="footer">
@@ -131,5 +167,4 @@
         </div>
     </div>
 </body>
-
 </html>
