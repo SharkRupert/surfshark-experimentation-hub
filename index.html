@@ -53,40 +53,27 @@
 
         .intro-text {
             font-size: 1.1em;
-            margin-bottom: 30px;
+            margin-bottom: 20px; /* Reduced from 30px */
             line-height: 1.5;
             color: #cccccc; /* Slightly lighter grey for descriptive text */
-        }
-
-        .category-section {
-            margin-bottom: 30px;
-            text-align: left; /* Align category titles to the left */
-        }
-
-        .category-title {
-            color: #1EBFBF; /* Turquoise for category titles */
-            font-size: 1.4em;
-            font-weight: 700;
-            margin-bottom: 15px;
-            border-bottom: 2px solid rgba(30, 191, 191, 0.3); /* Subtle underline */
-            padding-bottom: 5px;
         }
 
         .button-grid {
             display: grid;
             grid-template-columns: 1fr; /* Single column by default */
-            gap: 12px; /* Slightly smaller gap */
-            margin-top: 15px; /* Adjust margin after category title */
+            gap: 8px; /* Reduced from 12px */
+            margin-top: 10px; /* Reduced from 15px */
         }
 
+        /* Default button styles (for Operational Framework) */
         .button-grid a {
             display: block;
             background-color: #1EBFBF; /* Surfshark primary turquoise */
             color: #16191c; /* Dark text on buttons for contrast */
-            padding: 15px 25px;
+            padding: 12px 20px; /* Reduced padding */
             border-radius: 8px;
             text-decoration: none;
-            font-size: 1.1em;
+            font-size: 1em; /* Slightly smaller font for buttons */
             font-weight: bold;
             transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
             box-shadow: 0 4px 10px rgba(30, 191, 191, 0.3); /* Shadow matching button color */
@@ -103,14 +90,135 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
+        /* Main Hub Button specific styles - Adjusted for alignment */
+        .main-hub-button {
+            display: block;
+            background-color: #FA3556; /* Surfshark Red - UPDATED */
+            color: #f9f9f9; /* White text for contrast */
+            padding: 12px 20px; /* Matched internal padding of other buttons */
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1em; /* Matched font size of other buttons */
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 10px rgba(250, 53, 86, 0.3); /* Shadow matching button color - UPDATED */
+            margin-bottom: 20px;
+            /* New properties for alignment */
+            margin-left: 15px; /* Aligns with category-section inner content start */
+            margin-right: 15px; /* Aligns with category-section inner content end */
+            width: calc(100% - 30px); /* Accounts for the new left/right margins */
+            box-sizing: border-box; /* Ensures padding and border are included in width calculation */
+        }
+
+        .main-hub-button:hover {
+            background-color: #E62A4B; /* Darker red on hover - UPDATED */
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(250, 53, 86, 0.4); /* Stronger shadow on hover - UPDATED */
+        }
+
+        .main-hub-button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .category-section {
+            margin-bottom: 20px; /* Reduced from 30px */
+            text-align: left; /* Align category titles to the left */
+            padding: 15px; /* Reduced from 20px */
+            border-radius: 8px; /* Rounded corners for sections */
+            background-color: transparent; /* Reverted to transparent */
+        }
+
+        /* Specific styles for the Experiments section buttons and title */
+        .category-section.experiments .category-title {
+            color: #E0E0E0; /* Softer white color for the title */
+        }
+        .category-section.experiments .category-title::after {
+            background-color: #F8F8F8; /* Divider matches button color */
+        }
+        .category-section.experiments .button-grid a {
+            background-color: #F8F8F8; /* Softer white background for buttons */
+            color: #16191c; /* Dark text for buttons */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adjusted shadow for light buttons */
+        }
+
+        .category-section.experiments .button-grid a:hover {
+            background-color: #E8E8E8; /* Slightly darker white on hover */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+        }
+
+        /* Specific styles for the Operational Framework section divider */
+        .category-section.operational .category-title::after {
+            background-color: #1EBFBF; /* Divider matches button color */
+        }
+
+        /* Specific styles for the Knowledge Base section buttons and title */
+        .category-section.knowledge-base .category-title {
+            color: #FFCC66; /* Softer yellow color for the title */
+        }
+        .category-section.knowledge-base .category-title::after {
+            background-color: #FFDD88; /* Divider matches button color */
+        }
+        .category-section.knowledge-base .button-grid a {
+            background-color: #FFDD88; /* Softer yellow color */
+            color: #16191c; /* Dark text for buttons */
+            box-shadow: 0 4px 10px rgba(255, 221, 136, 0.3); /* Adjusted shadow for yellow buttons */
+        }
+
+        .category-section.knowledge-base .button-grid a:hover {
+            background-color: #FFCC66; /* Darker yellow on hover */
+            box-shadow: 0 8px 20px rgba(255, 204, 102, 0.4); /* Stronger shadow on hover */
+        }
+
+
+        .category-title {
+            color: #1EBFBF; /* Turquoise for category titles (default) */
+            font-size: 1.3em; /* Slightly smaller title */
+            font-weight: 700;
+            margin-bottom: 10px; /* Reduced from 15px */
+            border-bottom: 2px solid rgba(30, 191, 191, 0.3); /* Subtle underline */
+            padding-bottom: 5px;
+            position: relative; /* Needed for ::after positioning */
+        }
+
+        /* Default divider for category titles, overridden by specific section styles */
+        .category-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 2px;
+            width: 100%;
+            background-color: rgba(30, 191, 191, 0.3); /* Default subtle underline */
+            border-radius: 1px;
+        }
+
+
         .footer {
-            margin-top: 40px;
-            font-size: 0.85em; /* Slightly smaller footer text */
+            margin-top: 30px; /* Reduced from 40px */
+            font-size: 0.8em; /* Slightly smaller footer text */
             color: #777;
+            display: flex; /* Use flexbox for footer content */
+            justify-content: center; /* Center items horizontally */
+            align-items: center; /* Center items vertically */
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            gap: 10px; /* Reduced from 15px */
         }
 
         .footer p {
             margin: 0;
+        }
+
+        .footer a {
+            color: #1EBFBF; /* Turquoise for footer links */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #18A0A0; /* Darker turquoise on hover */
         }
 
         /* Responsive adjustments */
@@ -122,13 +230,13 @@
 
         @media (min-width: 768px) {
             .container {
-                padding: 40px;
+                padding: 30px; /* Reduced from 40px */
             }
             h1 {
-                font-size: 3em;
+                font-size: 2.8em; /* Slightly smaller */
             }
             .category-title {
-                font-size: 1.6em;
+                font-size: 1.5em; /* Slightly smaller */
             }
         }
     </style>
@@ -138,37 +246,40 @@
         <h1>Surfshark iOS & Android App Experimentation Hub</h1>
         <p class="intro-text">Your central access point for all essential A/B testing resources and documentation, categorized for easy navigation:</p>
 
-        <div class="category-section">
-            <h2 class="category-title">Acquisition Experiments</h2>
+        <!-- Main Hub Button -->
+        <a href="https://surfshark.atlassian.net/wiki/spaces/AB/overview" target="_blank" class="main-hub-button">Experimentation Hub Main</a>
+
+        <div class="category-section experiments">
+            <h2 class="category-title">Experiments</h2>
             <div class="button-grid">
-                <a href="https://airtable.com/apppwYCMX0ApZbbkV/tblM55wXGeiwCpqra/viwvj8KAYvuEcVxQH?blocks=hide" target="_blank">Future Test Backlog</a>
-                <a href="https://airtable.com/apppwYCMX0ApZbbkV/tblaoSLk5qdfgzHQE/viw5s3aG29ZFeCVVV?blocks=hide" target="_blank">Previous Tests Backlog</a>
-                <a href="https://drive.google.com/drive/folders/1md1iTewtnkH1WOxwPkzTq7kXuHzKKzXy?usp=share_link" target="_blank">Post-Test Analysis</a>
-                <a href="https://surfshark.atlassian.net/wiki/spaces/AB/pages/1085407252/Pricing+test+implementation+in+apps" target="_blank">Pricing Experiments + Checklist</a>
-                <a href="https://surfshark.atlassian.net/wiki/spaces/AB/pages/1549795338/App+experiments+checklist" target="_blank">App Experiments + Checklist</a>
+                <a href="https://airtable.com/apppwYCMX0ApZbbkV/tblM55wXGeiwCpqra/viwvj8KAYvuEcVxQH?blocks=hide" target="_blank">Future Tests</a>
+                <a href="https://airtable.com/apppwYCMX0ApZbbkV/tblaoSLk5qdfgzHQE/viw5s3aG29ZFeCVVV?blocks=hide" target="_blank">Previous Tests</a>
+                <a href="https://surfshark.atlassian.net/wiki/spaces/AB/pages/1549729798/Test+ranking+score" target="_blank">Current Tests</a>
             </div>
         </div>
 
-        <div class="category-section">
+        <div class="category-section operational">
             <h2 class="category-title">Operational Framework</h2>
             <div class="button-grid">
-                <a href="https://airtable.com/apppwYCMX0ApZbbkV/shrHmRb9x0Ye9f3L8" target="_blank">Submit Your Testing Ideas & Discuss</a>
-                <a href="https://airtable.com/apppwYCMX0ApZbbkV/pagjFVMbKYEbuS09R/form" target="_blank">Feedback Form</a>
-                <a href="https://surfshark.atlassian.net/wiki/spaces/AB/pages/1549729798/Test+ranking+score" target="_blank">RICE Ranking Score + Airtable Ranking</a>
+                <a href="https://surfshark.atlassian.net/wiki/spaces/AB/pages/1085407252/Pricing+test+implementation+in+apps" target="_blank">Pricing Experiments Checklist</a>
+                <a href="https://surfshark.atlassian.net/wiki/spaces/AB/pages/1549795338/App+experiments+checklist" target="_blank">App Experiments Checklist</a>
                 <a href="https://surfshark.atlassian.net/wiki/spaces/AB/pages/1545175041/Experiment+Design+Template+Your+Quick+Guide" target="_blank">Experimentation Templates</a>
             </div>
         </div>
 
-        <div class="category-section">
+        <div class="category-section knowledge-base">
             <h2 class="category-title">Knowledge Base</h2>
             <div class="button-grid">
-                <a href="https://surfshark.atlassian.net/wiki/spaces/AB/pages/1549565980/App+experimentation+best+worst+practices." target="_blank">Best Practices from Examples</a>
+                <a href="https://airtable.com/apppwYCMX0ApZbbkV/shrHmRb9x0Ye9f3L8" target="_blank">Submit Ideas & Let's chat</a>
+                <a href="https://drive.google.com/drive/folders/1md1iTewtnkH1WOxwPkzTq7kXuHzKKzXy?usp=share_link" target="_blank">Post-Test Analysis</a>
+                <a href="https://surfshark.atlassian.net/wiki/spaces/AB/pages/1549565980/App+experimentation+best+worst+practices." target="_blank">Best & Worst Practices</a>
                 <a href="https://drive.google.com/drive/folders/1iyZlD1t1GoNkFcINPpHhvpKmMpW6-yFU?usp=share_link" target="_blank">App Analysis & Research</a>
             </div>
         </div>
 
         <div class="footer">
             <p>&copy; 2025 Surfshark. For internal use only.</p>
+            <a href="https://airtable.com/apppwYCMX0ApZbbkV/pagjFVMbKYEbuS09R/form" target="_blank">Leave experimentation team a feedback, your opinion matters!</a>
         </div>
     </div>
 </body>
