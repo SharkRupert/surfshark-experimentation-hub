@@ -16,6 +16,7 @@
             align-items: flex-start;
             min-height: 100vh;
             box-sizing: border-box;
+            position: relative; /* Needed for positioning the right sidebar */
         }
 
         .container {
@@ -24,10 +25,11 @@
             border-radius: 12px;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
             text-align: center;
-            max-width: 600px; /* Slightly wider for better layout with categories */
+            max-width: 600px; /* Max width for the main content area */
             width: 100%;
             margin-top: 50px;
             color: #f9f9f9; /* Light text for contrast */
+            flex-shrink: 0; /* Prevent container from shrinking when right sidebar appears */
         }
 
         h1 {
@@ -93,7 +95,7 @@
         /* Main Hub Button specific styles - Adjusted for alignment */
         .main-hub-button {
             display: block;
-            background-color: #FA3556; /* Surfshark Red - UPDATED */
+            background-color: #FA3556; /* Surfshark Red */
             color: #f9f9f9; /* White text for contrast */
             padding: 12px 20px; /* Matched internal padding of other buttons */
             border-radius: 8px;
@@ -101,7 +103,7 @@
             font-size: 1em; /* Matched font size of other buttons */
             font-weight: bold;
             transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 4px 10px rgba(250, 53, 86, 0.3); /* Shadow matching button color - UPDATED */
+            box-shadow: 0 4px 10px rgba(250, 53, 86, 0.3);
             margin-bottom: 20px;
             /* New properties for alignment */
             margin-left: 15px; /* Aligns with category-section inner content start */
@@ -111,9 +113,9 @@
         }
 
         .main-hub-button:hover {
-            background-color: #E62A4B; /* Darker red on hover - UPDATED */
+            background-color: #E62A4B; /* Darker red on hover */
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(250, 53, 86, 0.4); /* Stronger shadow on hover - UPDATED */
+            box-shadow: 0 8px 20px rgba(250, 53, 86, 0.4);
         }
 
         .main-hub-button:active {
@@ -221,6 +223,36 @@
             color: #18A0A0; /* Darker turquoise on hover */
         }
 
+        /* Styles for the right sidebar section */
+        .right-sidebar-section {
+            background-color: #16191c; /* Dark background, same as main container */
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            width: 380px; /* Fixed width for the sidebar */
+            margin-top: 50px; /* Align with main container top */
+            margin-left: 20px; /* Space between main container and sidebar */
+            flex-shrink: 0; /* Prevent from shrinking */
+            display: flex; /* Use flex for internal alignment */
+            flex-direction: column;
+            align-items: center;
+            color: #f9f9f9;
+        }
+
+        .right-sidebar-section .category-title {
+            width: 100%; /* Ensure title takes full width */
+            text-align: left;
+            margin-bottom: 15px; /* Add some space below title */
+        }
+
+        .right-sidebar-section iframe {
+            width: 100%;
+            height: 533px; /* Keep original height or adjust as needed */
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow to iframe */
+        }
+
+
         /* Responsive adjustments */
         @media (min-width: 600px) {
             .button-grid {
@@ -228,15 +260,25 @@
             }
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 1024px) { /* Adjust breakpoint for side-by-side layout */
+            body {
+                justify-content: center; /* Center the entire content block */
+                align-items: flex-start;
+            }
             .container {
-                padding: 30px; /* Reduced from 40px */
+                margin-right: 0; /* Remove right margin if sidebar is present */
             }
-            h1 {
-                font-size: 2.8em; /* Slightly smaller */
+            .right-sidebar-section {
+                display: flex; /* Show sidebar on larger screens */
             }
-            .category-title {
-                font-size: 1.5em; /* Slightly smaller */
+        }
+
+        @media (max-width: 1023px) { /* On smaller screens, hide sidebar and stack content */
+            .right-sidebar-section {
+                display: none; /* Hide sidebar on smaller screens */
+            }
+            .container {
+                margin-top: 20px; /* Adjust top margin for main container on smaller screens */
             }
         }
     </style>
@@ -246,7 +288,6 @@
         <h1>Surfshark iOS & Android App Experimentation Hub</h1>
         <p class="intro-text">Your central access point for all essential A/B testing resources and documentation, categorized for easy navigation:</p>
 
-        <!-- Main Hub Button -->
         <a href="https://surfshark.atlassian.net/wiki/spaces/AB/overview" target="_blank" class="main-hub-button">Experimentation Hub Main</a>
 
         <div class="category-section experiments">
@@ -264,6 +305,7 @@
                 <a href="https://surfshark.atlassian.net/wiki/spaces/AB/pages/1085407252/Pricing+test+implementation+in+apps" target="_blank">Pricing Experiments Checklist</a>
                 <a href="https://surfshark.atlassian.net/wiki/spaces/AB/pages/1549795338/App+experiments+checklist" target="_blank">App Experiments Checklist</a>
                 <a href="https://surfshark.atlassian.net/wiki/spaces/AB/pages/1545175041/Experiment+Design+Template+Your+Quick+Guide" target="_blank">Experimentation Templates</a>
+                <!-- Removed Experiment Calendar/Timeline button -->
             </div>
         </div>
 
@@ -274,6 +316,7 @@
                 <a href="https://drive.google.com/drive/folders/1md1iTewtnkH1WOxwPkzTq7kXuHzKKzXy?usp=share_link" target="_blank">Post-Test Analysis</a>
                 <a href="https://surfshark.atlassian.net/wiki/spaces/AB/pages/1549565980/App+experimentation+best+worst+practices." target="_blank">Best & Worst Practices</a>
                 <a href="https://drive.google.com/drive/folders/1iyZlD1t1GoNkFcINPpHhvpKmMpW6-yFU?usp=share_link" target="_blank">App Analysis & Research</a>
+                <!-- Removed Embed a Spreadsheet button -->
             </div>
         </div>
 
@@ -282,5 +325,13 @@
             <a href="https://airtable.com/apppwYCMX0ApZbbkV/pagjFVMbKYEbuS09R/form" target="_blank">Leave experimentation team a feedback, your opinion matters!</a>
         </div>
     </div>
+
+    <!-- Removed Airtable Calendar/Timeline Embed section -->
+    <!-- Removed Excel Embed section -->
+
+    <script>
+        // All JavaScript related to the removed buttons and sections has been removed.
+        // No script needed for this version as there are no dynamic elements related to these embeds.
+    </script>
 </body>
 </html>
